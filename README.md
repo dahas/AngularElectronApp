@@ -1,4 +1,6 @@
 # rcedit
+With this tool you can edit resources and detailed infos attached to a windows executable (exe) file.
+
 ## Download
 https://github.com/electron/rcedit/releases
 
