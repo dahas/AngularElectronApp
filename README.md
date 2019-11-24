@@ -59,11 +59,95 @@ export class AppComponent {
 ```
 If you run `ng serve` again and open the developer toolbar in the browser you will see `IS_ELECTRON: false` printed in the console. This is because the Electron Api is not accessible in the web browser.
 
-## 6. Distribute with Electron
+Your app has neither features nor any useful functionality yet, but basically it´s working. So you can start distributing it as a desktop executable.
 
-Download a prebuild distribution from here: https://github.com/electron/electron/releases. Choose the latest stable release (no Beta) for your operating system. E.g. for Windows 64Bit choose [electron-v6.1.5-win32-x64.zip](https://github.com/electron/electron/releases/download/v6.1.5/electron-v6.1.5-win32-x64.zip).
+## 6. Prepare Electron
 
-Create or open a folder of your Electron projects. 
+- Download a prebuild Electron distribution from here: https://github.com/electron/electron/releases. Choose the latest stable release (no Beta) for your operating system. E.g. for Windows 64Bit choose [electron-v6.1.5-win32-x64.zip](https://github.com/electron/electron/releases/download/v6.1.5/electron-v6.1.5-win32-x64.zip).
+
+- Parallel to your AngularProjects create a new folder where your Electron projects reside:  
+`$ mkdir ElectronProjects`   
+`$ cd ElectronProjects`  
+`$ mkdir ProjectName`
+
+- Unzip the content of the downloaded archive right into this folder. 
+
+- Open the `resources` subfolder and create a folder named `app` inside of it.
+`$ cd resources`  
+`$ mkdir app`
+
+- Inside of `app` create a `packagae.json` file. Set `name`and `version` properties according your project:
+```
+{
+  "name": "project_name",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  }
+}
+```
+
+- Create a second file `main.js` with following content:
+```
+const { app, BrowserWindow } = require('electron');
+
+let win;
+
+// Allow only a single instance of the app
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', () => {
+    if (win) { // Bring running app to front
+      if (win.isMinimized()) win.restore()
+      win.focus()
+    }
+  })
+
+  app.on('ready', createWindow)
+
+  app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+      app.quit()
+    }
+  })
+
+  app.on('activate', () => {
+    if (win === null) {
+      createWindow()
+    }
+  })
+
+  function createWindow() {
+    win = new BrowserWindow({
+      show: false, // Hidden until 'ready-to-show'.
+      width: 600,
+      height: 400,
+      title: 'Your title here',
+      // icon: __dirname + '/project_name/favicon.ico',
+      // resizable: false,
+      // maximizable: false,
+      // transparent: true,
+      // frame: false, // Hides the OS window
+
+      webPreferences: {
+        nodeIntegration: true
+      }
+    });
+
+    win.loadFile('project_name/index.html'); // The file to launch at start up.
+    
+    // win.setMenu(null); // Removes the OS menu
+
+    win.once('ready-to-show', () => { win.show() });
+    win.on('closed', () => { win = null });
+  }
+}
+
+```
 
 
 
