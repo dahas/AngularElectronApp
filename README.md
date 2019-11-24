@@ -1,6 +1,6 @@
 # AngularElectronApp
 
-This is a step by step description of how to create a distributable desktop app with Angular and Electron.
+This is a step by step description of how to create a desktop app with Angular and Electron.
 
 ## 1. Basic Requirements
 
@@ -151,7 +151,7 @@ if (!gotTheLock) {
 
 ```
 
-## Prepare Angular
+## 7. Prepare Angular
 
 - In the root folder of your Angular app, open `angular.json`. Search for the `build` section and set the output path, so that it points to the previously created `dist` folder of your Electron project:
 ```
@@ -159,7 +159,7 @@ if (!gotTheLock) {
 "build": {
   "builder": "@angular-devkit/build-angular:browser",
   "options": {
-    "outputPath": "../path/to/ElectronProjects/ProjectName/resources/app/dist",
+    "outputPath": "../../path/to/ElectronProjects/ProjectName/resources/app/dist",
     ...
   }
 }
@@ -180,24 +180,13 @@ if (!gotTheLock) {
 <base href="./">
 ```
 
+When you now run "electron.exe" which is in the root folder of your Electron project, you will now see your app running in a Windows frame. 
 
+## 8. Individualize "electron.exe"
 
+- The first step is simple: Rename `electron.exe` to `projectName.exe`. But you probably also want to change the icon and the details, that can be seen when right-clicking the exe file. Therefore continue with the next step.
 
-
-
-
-
-
-
-
-
-
-
-
-# rcedit
-With this tool you can edit resources and detailed infos attached to a windows executable (exe) file.
-
-## Download
+- Download a small tool called `rcedit`. With this tool you can edit the resources and infos attached to a windows executable.
 https://github.com/electron/rcedit/releases
 
 ## Usage
