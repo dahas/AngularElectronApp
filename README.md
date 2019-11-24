@@ -166,7 +166,7 @@ if (!gotTheLock) {
 ...
 ```
 
-- Next open `tsconfig.json`. You also find it in the root folder. Change the target EcmaScript Version from es2015 to es5:
+- Next open `tsconfig.json`. You also find it in the root folder. Change the target EcmaScript Version from es2015 to es5. This step is only necessary if you tap into the "Failed to load module script" error:
 ```
 "compilerOptions": {
   ...
@@ -175,10 +175,23 @@ if (!gotTheLock) {
 }
 ```
 
-- The last thing to do, is setting the base-path correctly. Open the `index.html` file inside the `src` folder and set the `base-path` like this:
+- The last thing to do is to set the `base` tag correctly. Open the `index.html` file inside the `src` folder and set the `base` tag like this:
 ```
 <base href="./">
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # rcedit
