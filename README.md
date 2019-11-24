@@ -153,7 +153,7 @@ if (!gotTheLock) {
 
 ## Prepare Angular
 
-- In the root of your Angular app, open `angular.json`. Search for the `build` section and set the output path, so that it points to the previously created `dist` folder of your Electron project:
+- In the root folder of your Angular app, open `angular.json`. Search for the `build` section and set the output path, so that it points to the previously created `dist` folder of your Electron project:
 ```
 ...
 "build": {
@@ -166,8 +166,19 @@ if (!gotTheLock) {
 ...
 ```
 
+- Next open `tsconfig.json`. You also find it in the root folder. Change the target EcmaScript Version from es2015 to es5:
+```
+"compilerOptions": {
+  ...
+  "target": "es5",
+  ...
+}
+```
 
-
+- The last thing to do, is setting the base-path correctly. Open the `index.html` file inside the `src` folder and set the `base-path` like this:
+```
+<base href="./">
+```
 
 
 # rcedit
