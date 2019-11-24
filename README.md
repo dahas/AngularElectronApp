@@ -180,16 +180,17 @@ if (!gotTheLock) {
 <base href="./">
 ```
 
-When you now run "electron.exe" which is in the root folder of your Electron project, you will now see your app running in a Windows frame. 
+If you now run "electron.exe", which is in the root folder of your Electron project, you will see your app running in a Windows frame. 
 
 ## 8. Individualize "electron.exe"
 
-- The first step is simple: Rename `electron.exe` to `projectName.exe`. But you probably also want to change the icon and the details, that can be seen when right-clicking the exe file. Therefore continue with the next step.
+- The first step is simple: Rename `electron.exe` to `projectName.exe`.
 
-- Download a small tool called `rcedit`. With this tool you can edit the resources and infos attached to a windows executable.
-https://github.com/electron/rcedit/releases
+You probably also want to change the icon and the details, that can be seen when right-clicking the exe file. Therefore continue with the next step.
 
-## Usage
+- Download a small tool called `rcedit`. With this tool you can edit the resources and infos attached to a windows executable. https://github.com/electron/rcedit/releases
+
+### Usage:
 
 #### Set icon:
 ```
