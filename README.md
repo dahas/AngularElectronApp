@@ -76,7 +76,9 @@ Your app has neither features nor any useful functionality yet, but basically it
 `$ cd resources`  
 `$ mkdir app`
 
-- Inside of `app` create a `packagae.json` file. Set `name`and `version` properties according your project:
+- Inside of `app` create a folder named `dist`. Leave it empty.
+
+- Also create a `packagae.json` file inside of `app`. Set `name` and `version` properties according your project:
 ```
 {
   "name": "project_name",
@@ -127,7 +129,7 @@ if (!gotTheLock) {
       width: 600,
       height: 400,
       title: 'Your title here',
-      // icon: __dirname + '/project_name/favicon.ico',
+      // icon: __dirname + '/dist/favicon.ico',
       // resizable: false,
       // maximizable: false,
       // transparent: true,
@@ -138,7 +140,7 @@ if (!gotTheLock) {
       }
     });
 
-    win.loadFile('project_name/index.html'); // The file to launch at start up.
+    win.loadFile('dist/index.html'); // The file to launch at start up.
     
     // win.setMenu(null); // Removes the OS menu
 
@@ -148,6 +150,22 @@ if (!gotTheLock) {
 }
 
 ```
+
+## Prepare Angular
+
+- In the root of your Angular app, open `angular.json`. Search for the `build` section and set the output path, so that it points to the previously created `dist` folder of your Electron project:
+```
+...
+"build": {
+  "builder": "@angular-devkit/build-angular:browser",
+  "options": {
+    "outputPath": "../path/to/ElectronProjects/ProjectName/resources/app/dist",
+    ...
+  }
+}
+...
+```
+
 
 
 
