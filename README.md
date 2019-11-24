@@ -166,7 +166,7 @@ if (!gotTheLock) {
 ...
 ```
 
-- Next open `tsconfig.json`. You also find it in the root folder. Change the target EcmaScript Version from es2015 to es5. This step is only necessary if you tap into the "Failed to load module script" error:
+- Next open `tsconfig.json`. You also find it in the root folder. Change the target EcmaScript Version from es2015 to es5. This step is only necessary if you encounter the "Failed to load module script" error:
 ```
 "compilerOptions": {
   ...
