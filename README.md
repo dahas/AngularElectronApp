@@ -274,4 +274,6 @@ InnoSetup is a free and secure Open Source tool to create Windows installer pack
 - Click next until finish.
 - Confirm to compile the script now. Optinally you can save the script file.
 
-**That should have been everything. Congratulation!**
+Now you can install your app and it will appear in the Windows startmenu and/or as a shortcut on the desktop. 
+
+**That should have been everything.**
