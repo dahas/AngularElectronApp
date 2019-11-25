@@ -192,7 +192,7 @@ If you now run "electron.exe", from within the root folder of your Electron proj
 
 - Rename `electron.exe` to `projectName.exe`.
 
-But renaming will probably not be enough. You surely want to change the icon and the details, that can be seen when right-clicking the exe file, as well. Therefore proceed with the next step.
+Renaming won´t be enough. You surely want to change the icon and the details, that can be seen when right-clicking the exe file, as well. Therefore proceed with the next step.
 
 - Download a small tool called [rcedit](https://github.com/electron/rcedit/releases). With this tool you can edit the resources and infos attached to a Windows executable. Choose the exe for either the 64 or 32 Bit version of your Windows OS.
 
