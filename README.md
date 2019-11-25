@@ -255,10 +255,7 @@ asar pack app app.asar
 
 - Remove the `app` folder.
 
-- To extract the archive run:
-```
-asar extract app.asar app
-```
+(- To extract an archive you would run `$ asar extract app.asar app`.)
 
 ## 11. Create an Installer
 
