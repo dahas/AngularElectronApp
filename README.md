@@ -1,6 +1,6 @@
 # AngularElectronApp
 
-This is a step by step description of how to create a desktop app with Angular and Electron.
+This is a step by step description of how to create a Windows desktop app with Angular and Electron. 
 
 ## 1. Basic Requirements
 
@@ -9,13 +9,13 @@ This is a step by step description of how to create a desktop app with Angular a
 
 ## 2. Create Angular Project
 
-Create or open a folder of your Angular projects. Launch a Shell in that folder and run the following commands:
+Choose a folder, that should contain your Angular project. Launch a Shell in that folder and run the following commands:
 
 `$ ng new ProjectName`  
 `$ cd ProjectName`  
 `$ ng serve --open` (Run app in browser)  
 
-Minimize the browser window and return to the Shell. Press Ctrl + C and shut down the server.
+Your app works even though it does not yet contain any useful features. Save their implementation for later. Minimize the browser window and return to the Shell. Press Ctrl + C to shut down the server.
 
 ## 3. Install Electron as Dependency
 
@@ -57,20 +57,18 @@ export class AppComponent {
     }
 }
 ```
-If you run `ng serve` again and open the developer toolbar in the browser you will see `IS_ELECTRON: false` printed in the console. This is because the Electron Api is not accessible in the web browser.
+Inject the service the same way into another component, that you will create later to extend your app.
 
-Your app has neither features nor any useful functionality yet, but basically it´s working. So you can start distributing it as a desktop executable.
+If you run `ng serve` again and open the developer toolbar in the browser you will see `IS_ELECTRON: false` printed in the console. This is because the Electron API is not accessible in the web browser.
 
 ## 6. Prepare Electron
 
 - Download a prebuild Electron distribution from here: https://github.com/electron/electron/releases. Choose the latest stable release (no Beta) for your operating system. E.g. for Windows 64Bit choose [electron-v6.1.5-win32-x64.zip](https://github.com/electron/electron/releases/download/v6.1.5/electron-v6.1.5-win32-x64.zip).
 
-- Parallel to your AngularProjects create a new folder where your Electron projects reside:  
-`$ mkdir ElectronProjects`   
-`$ cd ElectronProjects`  
+- Create a new folder for the Electron version of your project:   
 `$ mkdir ProjectName`
 
-- Unzip the content of the downloaded archive right into this folder. 
+- Unzip the content of the archive you just downloaded right into this folder. 
 
 - Open the `resources` subfolder and create a folder named `app` inside of it.
 `$ cd resources`  
@@ -78,7 +76,7 @@ Your app has neither features nor any useful functionality yet, but basically it
 
 - Inside of `app` create a folder named `dist`. Leave it empty.
 
-- Also create a `packagae.json` file inside of `app`. Set `name` and `version` properties according your project:
+- Also create a `packagae.json` file inside of `app`. Set `name` and `version` properties accordingly:
 ```
 {
   "name": "project_name",
@@ -150,6 +148,7 @@ if (!gotTheLock) {
 }
 
 ```
+Next we configure Angular to deploy the app into the dist folder of Electron.
 
 ## 7. Prepare Angular
 
@@ -159,7 +158,7 @@ if (!gotTheLock) {
 "build": {
   "builder": "@angular-devkit/build-angular:browser",
   "options": {
-    "outputPath": "../../path/to/ElectronProjects/ProjectName/resources/app/dist",
+    "outputPath": "path/to/ElectronProjects/ProjectName/resources/app/dist",
     ...
   }
 }
@@ -175,20 +174,20 @@ if (!gotTheLock) {
 }
 ```
 
-- The last thing to do is to set the `base` tag correctly. Open the `index.html` file inside the `src` folder and set the `base` tag like this:
+- Last but not least set the `base` tag correctly. Open the `index.html` file inside the `src` folder and change the `href` attribute of the `base` tag from "/" to "./":
 ```
 <base href="./">
 ```
 
-If you now run "electron.exe", which is in the root folder of your Electron project, you will see your app running in a Windows frame. 
+If you now run "electron.exe", from within the root folder of your Electron project, you will see your app running in a Windows frame. 
 
 ## 8. Individualize "electron.exe"
 
-- The first step is simple: Rename `electron.exe` to `projectName.exe`.
+- Rename `electron.exe` to `projectName.exe`.
 
-You probably also want to change the icon and the details, that can be seen when right-clicking the exe file. Therefore continue with the next step.
+But renaming won´t probably not be enough. You surely want to change the icon and the details, that can be seen when right-clicking the exe file, as well. Therefore proceed with the next step.
 
-- Download a small tool called `rcedit`. With this tool you can edit the resources and infos attached to a windows executable. https://github.com/electron/rcedit/releases
+- Download and install a small tool called `rcedit`. With this tool you can edit the resources and infos attached to a Windows executable. https://github.com/electron/rcedit/releases
 
 ### Usage:
 
