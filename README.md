@@ -187,41 +187,45 @@ If you now run "electron.exe", from within the root folder of your Electron proj
 
 But renaming won´t probably not be enough. You surely want to change the icon and the details, that can be seen when right-clicking the exe file, as well. Therefore proceed with the next step.
 
-- Download and install a small tool called `rcedit`. With this tool you can edit the resources and infos attached to a Windows executable. https://github.com/electron/rcedit/releases
+- Download a small tool called [rcedit](https://github.com/electron/rcedit/releases). With this tool you can edit the resources and infos attached to a Windows executable. Choose the exe for either the 64 or 32 Bit version of your Windows OS.
 
-### Usage:
+- Place the file in a folder and rename it to `rcedit.exe`.
+
+- Add the path to `rcedit.exe` as a PATH varaible.
+
+- Now use it as follows:
 
 #### Set icon:
 ```
-$ rcedit "D:\path\to\app.exe" --set-icon "D:\path\to\app.ico"
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-icon "D:\path\to\Electron\projectName\resources\app\dist\favicon.ico"
 ```
 
 #### Set description:
 ```
-$ rcedit "D:\path\to\app.exe" --set-version-string "FileDescription" "Text ..."
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string "FileDescription" "Text ..."
 ```
 
 #### Set file version:
 ```
-$ rcedit "D:\path\to\app.exe" --set-file-version "x.x.x.x"
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-file-version "x.x.x.x"
 ```
 
 #### Set product name:
 ```
-$ rcedit "D:\path\to\app.exe" --set-version-string "ProductName" "Text ..."
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string "ProductName" "Text ..."
 ```
 
 #### Set product version:
 ```
-$ rcedit "D:\path\to\app.exe" --set-product-version "x.x.x"
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-product-version "x.x.x"
 ```
 
 #### Set copyright:
 ```
-$ rcedit "D:\path\to\app.exe" --set-version-string "LegalCopyright" "Copyright (C) 2019 Name. All rights reserved."
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string "LegalCopyright" "Copyright (C) 2019 Name. All rights reserved."
 ```
 
 #### Set original file name:
 ```
-$ rcedit "D:\path\to\app.exe" --set-version-string "OriginalFilename" "app.exe"
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string "OriginalFilename" "app.exe"
 ```
