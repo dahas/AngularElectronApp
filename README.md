@@ -1,6 +1,6 @@
 # AngularElectronApp
 
-This is a step by step description of how to create a Windows desktop app with Angular and Electron. 
+This is a complete step by step description of how to create a distributsble Windows desktop app with Angular and Electron. 
 
 ## 1. Basic Requirements
 
@@ -179,13 +179,20 @@ Next we configure Angular to deploy the app into the dist folder of Electron.
 <base href="./">
 ```
 
+## 8. Deploy your Angular App
+
+By running the `ng build` command the app will be deployed into the `dist` folder of your Electron project.
+```
+$ ng build
+```
+
 If you now run "electron.exe", from within the root folder of your Electron project, you will see your app running in a Windows frame. 
 
-## 8. Individualize "electron.exe"
+## 9. Individualize "electron.exe"
 
 - Rename `electron.exe` to `projectName.exe`.
 
-But renaming won´t probably not be enough. You surely want to change the icon and the details, that can be seen when right-clicking the exe file, as well. Therefore proceed with the next step.
+But renaming will probably not be enough. You surely want to change the icon and the details, that can be seen when right-clicking the exe file, as well. Therefore proceed with the next step.
 
 - Download a small tool called [rcedit](https://github.com/electron/rcedit/releases). With this tool you can edit the resources and infos attached to a Windows executable. Choose the exe for either the 64 or 32 Bit version of your Windows OS.
 
@@ -229,3 +236,24 @@ $ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string 
 ```
 $ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string "OriginalFilename" "app.exe"
 ```
+
+## 10. Create a compressed Package with asar
+
+- Install `asar` globally:
+```
+$ npm install -g asar
+```
+
+- Inside the `resources` folder of your electron app, run the following command in a Shell:
+```
+asar pack app app.asar
+```
+
+- Remove the `app` folder.
+
+- To extract the archive run:
+```
+asar extract app.asar app
+```
+
+## 11. Create an Installer
