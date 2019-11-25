@@ -205,9 +205,9 @@ Renaming won´t be enough. You surely want to change the icon and the details, t
 - Now use it as follows:
 
 #### Set icon:
-Note: A Windows compliant application icon, that´ll be used as a short-cut, a file type, or embedded in an executable file, must contain at least the following sizes: `256x256px, 48x48px, 32x32px, 16x16px`. With [gimp](https://www.gimp.org/) you can create such multi-size ico files.
+Note: A Windows compliant application icon, that´ll be used as a short-cut, a file type, or embedded in an executable file, must contain at least the following sizes: `256x256px, 48x48px, 32x32px, 16x16px`. With [gimp](https://www.gimp.org/) you can create such an multi-size ico file.
 ```
-$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-icon "D:\path\to\Electron\projectName\resources\app\dist\favicon.ico"
+$ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-icon "D:\path\to\your.ico"
 ```
 
 #### Set description:
