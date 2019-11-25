@@ -257,3 +257,19 @@ asar extract app.asar app
 ```
 
 ## 11. Create an Installer
+
+InnoSetup is a free and secure Open Source tool to create Windows installer packages.
+
+- Download the basic package [innosetup-6.0.3.exe](http://www.jrsoftware.org/download.php/is.exe?site=2).
+- Start InnoSetup and select "Create a new script file using the Script Wizard" in the prompt. Click next.
+- Leave "Create empty script file" unchecked. Click next.
+- Enter basic information. Click next.
+- Change Application folder name. Click next.
+- Browse to the directory of your Electron project and select the exe of your app.
+- Also add the complete folder of your Electron project in the section below. Confirm to include subfolders.
+- Click next until you reach the compiler settings.
+- Specify an output folder and change the output file name to `install`.
+- Click next until finish.
+- Confirm to compile the script now. Optinally you can save the script file.
+
+**That should have been everything. Congratulation!**
