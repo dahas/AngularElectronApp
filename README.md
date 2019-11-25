@@ -70,7 +70,7 @@ If you run `ng serve` again and open the developer toolbar in the browser you wi
 
 - Unzip the content of the archive you just downloaded right into this folder. 
 
-- Open the `resources` subfolder and create a folder named `app` inside of it.
+- Open the `resources` subfolder and create a folder named `app` inside of it.  
 `$ cd resources`  
 `$ mkdir app`
 
