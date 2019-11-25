@@ -1,6 +1,6 @@
 # AngularElectronApp
 
-This is a complete step by step description of how to create a distributsble Windows desktop app with Angular and Electron. 
+This is a complete step by step description of how to create a distributable Windows desktop app with Angular and Electron. 
 
 ## 1. Basic Requirements
 
