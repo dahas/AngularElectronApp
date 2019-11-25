@@ -150,7 +150,7 @@ if (!gotTheLock) {
 ```
 The `createWindow` function mainly defines the appereance of your app. 
 
-Next you must configure Angular to deploy your app into the dist folder of your Electron project.
+Next you must configure Angular to deploy your app into the `dist` folder of your Electron project.
 
 ## 7. Prepare Angular
 
