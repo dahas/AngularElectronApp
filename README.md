@@ -7,7 +7,7 @@ This is a complete step by step description of how to create a distributsble Win
 - NodeJS
 - Angular Framework and CLI
 
-## 2. Create Angular Project
+## 2. Create an Angular Project
 
 Choose a folder, that should contain your Angular project. Launch a Shell in that folder and run the following commands:
 
@@ -238,6 +238,8 @@ $ rcedit "D:\path\to\Electron\projectName\projectName.exe" --set-version-string 
 ```
 
 ## 10. Create a compressed Package with asar
+
+Before this step you usually add functionlity to your app. But for the sake of demonstration, let´s continue ...
 
 - Install `asar` globally:
 ```
